@@ -155,4 +155,25 @@
 
 			}
 		});
+
+		//Carousel
+		document.querySelectorAll('.carousel').forEach(carousel => {
+			const slides = carousel.querySelectorAll('.slide');
+			const dots = carousel.querySelectorAll('.dot');
+
+			dots.forEach(dot => {
+				dot.addEventListener('click', () => {
+				const index = parseInt(dot.dataset.index);
+
+				// Desactivar todos los slides y dots en ESTE carrusel
+				slides.forEach(slide => slide.classList.remove('active'));
+				dots.forEach(d => d.classList.remove('active'));
+
+				// Activar los seleccionados
+				slides[index].classList.add('active');
+				dot.classList.add('active');
+				});
+			});
+		});
+
 })(jQuery);
